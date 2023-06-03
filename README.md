@@ -1,6 +1,6 @@
 ## Soklet Example (Barebones)
 
-Here we demonstrate building and running a minimal Soklet application with nothing but the Soklet JAR and the JDK (or Docker).
+Here we demonstrate building and running a single-file Soklet application with nothing but the Soklet JAR and the JDK (or Docker).
 
 While a real production system will have more moving parts, it's important to show that you _can_ build server software without ceremony or dependencies - this is the Soklet ethos.
 
@@ -13,7 +13,7 @@ Two ways to build and run are shown:
 
 ### Source Code
 
-The entire application is contained in a single file, [src/com/soklet/example/App.java](src/com/soklet/example/App.java), which is reproduced below.
+The entire application is contained in [src/com/soklet/example/App.java](src/com/soklet/example/App.java), which is reproduced below.
 
 ```java
 public class App {
