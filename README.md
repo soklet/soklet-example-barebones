@@ -78,9 +78,7 @@ java --enable-preview -cp soklet-2.0.0-SNAPSHOT.jar:build com/soklet/example/App
 
 ### Building and Running With Docker
 
-Requires [Docker](https://www.docker.com/products/docker-desktop/) to be installed on your machine.
-
-The entire [Dockerfile](Dockerfile) is reproduced below.
+Requires [Docker](https://www.docker.com/products/docker-desktop/) to be installed on your machine. The entire [Dockerfile](Dockerfile) is reproduced below.
 
 ```dockerfile
 FROM amazoncorretto:20
