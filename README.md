@@ -1,13 +1,15 @@
 ## Soklet Example (Barebones)
 
-Here we demonstrate building and running a minimal Soklet application with nothing but the Soklet JAR and the JDK.
+Here we demonstrate building and running a minimal Soklet application with nothing but the Soklet JAR and the JDK (or Docker).
+
+While a real production system will have more moving parts, it's important to show that you _can_ build server software without ceremony or dependencies - this is the Soklet ethos.
 
 [A more fully-featured example is also available](https://github.com/soklet/soklet-example-full).
 
 Two ways to build and run are shown: 
 
-* [Directly from the command-line](#without-docker)
-* [Docker container](#with-docker)
+* [Directly from the command-line](#building-and-running-without-docker)
+* [Docker container](#building-and-running-with-docker)
 
 ### Source Code
 
@@ -37,8 +39,8 @@ public class App {
     Server server = new MicrohttpServer.Builder(port).build();
     SokletConfiguration sokletConfiguration = new SokletConfiguration.Builder(server).build();
 
-    // In an interactive console environment, it makes sense to stop on `Return` keypress.
-    // In a Docker container, it makes sense to join on the current thread (no stdin)
+    // In an interactive console environment, stop on `Return` keypress.
+    // In a Docker container, join on the current thread (normally no stdin)
     boolean stopOnKeypress = !"true".equals(System.getenv("RUNNING_IN_DOCKER"));
 
     try (Soklet soklet = new Soklet(sokletConfiguration)) {
@@ -58,37 +60,35 @@ public class App {
 }
 ```
 
-### Building and Running
-
-#### Without Docker
+### Building and Running Without Docker
 
 Requires JDK 16+ to be installed on your machine.  If you need one, Amazon provides [Corretto](https://aws.amazon.com/corretto/) - a free-to-use, production-ready distribution of [OpenJDK](https://openjdk.org/) that includes LTS.
 
-##### Build
+#### Build
 
-```shell
+```console
 javac -parameters -cp soklet-2.0.0-SNAPSHOT.jar -d build src/com/soklet/example/App.java 
 ```
 
-##### Run
+#### Run
 
-```shell
+```console
 java --enable-preview -cp soklet-2.0.0-SNAPSHOT.jar:build com/soklet/example/App
 ```
 
-#### With Docker
+### Building and Running With Docker
 
-Requires Docker to be installed on your machine.
+Requires [Docker](https://www.docker.com/products/docker-desktop/) to be installed on your machine.
 
-##### Build
+#### Build
 
-```shell
+```console
 docker build . --file Dockerfile --tag soklet/example-barebones
 ```
 
-##### Run
+#### Run
 
-```shell
+```console
 docker run -p 8080:8080 soklet/example-barebones
 ```
 
@@ -98,7 +98,7 @@ docker run -p 8080:8080 soklet/example-barebones
 
 ##### Request
 
-```shell
+```console
 curl  "http://localhost:8080/"
 ```
 
@@ -112,7 +112,7 @@ Hello, world
 
 ##### Request
 
-```shell
+```console
 curl --verbose "http://localhost:8080/test-input?input=123"
 ```
 
@@ -135,7 +135,7 @@ curl --verbose "http://localhost:8080/test-input?input=123"
 
 ##### Request
 
-```shell
+```console
 curl --verbose "http://localhost:8080/test-input?input=abc"
 ```
 
