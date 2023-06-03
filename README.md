@@ -9,7 +9,7 @@ While a real production system will have more moving parts, it's important to sh
 Two ways to build and run are shown: 
 
 * [Directly from the command-line](#building-and-running-without-docker)
-* [Docker container](#building-and-running-with-docker)
+* [Inside of a Docker container](#building-and-running-with-docker)
 
 ### Source Code
 
@@ -62,7 +62,7 @@ public class App {
 
 ### Building and Running Without Docker
 
-Requires JDK 16+ to be installed on your machine.  If you need one, Amazon provides [Corretto](https://aws.amazon.com/corretto/) - a free-to-use, production-ready distribution of [OpenJDK](https://openjdk.org/) that includes LTS.
+Requires JDK 16+ to be installed on your machine.  If you need one, Amazon provides [Corretto](https://aws.amazon.com/corretto/) - a free-to-use-commercially, production-ready distribution of [OpenJDK](https://openjdk.org/) that includes long-term support.
 
 #### Build
 
